@@ -50,19 +50,25 @@ const matchData: MatchOdds[] = [
 export default function SportsMatchWrapper() {
   const { matches, highlighted } = useOddsUpdater(matchData);
   return (
-    <section className="max-w-[1280px] mx-auto relative lg:-top-13">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {matches.map((match) => {
-          const baseId = match.id;
-          const isHighlighted =
-            highlighted?.[`${baseId}-one`] === "highlight" ||
-            highlighted?.[`${baseId}-x`] === "highlight" ||
-            highlighted?.[`${baseId}-two`] === "highlight";
+    <section className="w-full relative lg:-top-13">
+      <div className="max-w-[1280px] w-full mx-auto px-4 sm:px-6 lg:px-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {matches.map((match) => {
+            const baseId = match.id;
+            const isHighlighted =
+              highlighted?.[`${baseId}-one`] === "highlight" ||
+              highlighted?.[`${baseId}-x`] === "highlight" ||
+              highlighted?.[`${baseId}-two`] === "highlight";
 
-          return (
-            <MatchCard key={baseId} {...match} isHighlighted={isHighlighted} />
-          );
-        })}
+            return (
+              <MatchCard
+                key={baseId}
+                {...match}
+                isHighlighted={isHighlighted}
+              />
+            );
+          })}
+        </div>
       </div>
     </section>
   );

@@ -18,12 +18,12 @@ export default function MenuItems() {
           key={item}
           href="#"
           onClick={() => setActiveItem(item)}
-          className={`p-6 text-[14px] border-b-2 transition-all duration-300 ease-in-out
-            ${
-              activeItem === item
-                ? "text-[#1BB96B] border-[#1BB96B]"
-                : "text-gray-400 border-transparent hover:text-[#1BB96B] hover:border-[#1BB96B]"
-            }`}
+          className={`px-3 py-3 md:px-6 md:py-6 text-[14px] border-b-2 transition-all duration-300 ease-in-out
+    ${
+      activeItem === item
+        ? "text-[#1BB96B] border-[#1BB96B]"
+        : "text-gray-400 border-transparent hover:text-[#1BB96B] hover:border-[#1BB96B]"
+    }`}
         >
           {item}
         </a>

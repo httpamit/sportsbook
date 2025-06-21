@@ -13,7 +13,7 @@ export default function Header() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <header className="bg-[#130D25] text-white text-sm w-full">
+    <header className="bg-[#130D25] text-white text-sm w-full px-4 py-4 md:px-8 md:py-0">
       <div className="max-w-[1280px] w-full mx-auto flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Logo />

@@ -3,9 +3,17 @@ import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="w-full bg-[#120A23] text-white pt-10 border-t border-[#1C0F34]">
-      {/* Wrapper to center content and limit max width */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid [grid-template-columns:auto_auto_auto_200px] gap-8 pb-10">
+        <div
+          className="
+            grid 
+            grid-cols-1 
+            sm:grid-cols-2 
+            lg:grid-cols-[repeat(3,minmax(0,1fr))_200px]
+            gap-8 
+            pb-10
+          "
+        >
           {/* About */}
           <div>
             <h3 className="font-semibold mb-4">About</h3>
@@ -52,7 +60,7 @@ export default function Footer() {
           </div>
 
           {/* Social */}
-          <div>
+          <div className="w-full lg:max-w-[200px] lg:ml-auto">
             <h3 className="font-semibold mb-4">Social</h3>
             <ul className="space-y-2 text-sm text-white/70">
               <li className="flex items-center gap-2">

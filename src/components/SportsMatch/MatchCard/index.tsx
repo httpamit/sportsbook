@@ -27,7 +27,7 @@ export default function MatchCard({
   const { one, x, two } = odds;
   return (
     <div
-      className={`bg-[#130825] hover:bg-[#0F0A1F] p-6 rounded-lg text-white w-full max-w-sm transition-all duration-300 ${
+      className={`bg-[#130825] hover:bg-[#0F0A1F] p-6 rounded-lg text-white w-full transition-all duration-300 ${
         isHighlighted ? "shadow-[0_0_20px_#1BB96B] animate-pulse" : ""
       }`}
     >
