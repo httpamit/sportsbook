@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { getRandomIndex, getRandomOddKey, getUpdatedMatches } from "./utils";
 
 export type MatchOdds = {
   id: string;
@@ -16,49 +17,40 @@ export type MatchOdds = {
   };
 };
 
-export default function useOddsUpdater(initialData: MatchOdds[]) {
+const HIGHLIGHT_DURATION = 1000;
+const DEFAULT_INTERVAL = 5000;
+
+export default function useOddsUpdater(
+  initialData: MatchOdds[],
+  intervalMs: number = DEFAULT_INTERVAL
+) {
   const [matches, setMatches] = useState<MatchOdds[]>(initialData);
   const [highlighted, setHighlighted] = useState<Record<string, string>>({});
-  const matchesRef = useRef(matches); // useRef to keep latest value
+  const matchesRef = useRef(matches);
 
-  // Keep ref updated
   useEffect(() => {
     matchesRef.current = matches;
   }, [matches]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const matches = matchesRef.current;
-      const randomIndex = Math.floor(Math.random() * matches.length);
-      const randomKey = ["one", "x", "two"][
-        Math.floor(Math.random() * 3)
-      ] as keyof MatchOdds["odds"];
+      const currentMatches = matchesRef.current;
+      const index = getRandomIndex(currentMatches.length);
+      const key = getRandomOddKey();
 
-      const updatedMatches = matches.map((match, index) => {
-        if (index === randomIndex) {
-          return {
-            ...match,
-            odds: {
-              ...match.odds,
-              [randomKey]: +(Math.random() * (3 - 1.5) + 1.5).toFixed(2),
-            },
-          };
-        }
-        return match;
-      });
+      const updated = getUpdatedMatches(currentMatches, index, key);
+      const highlightKey = `${updated[index].id}-${key}`;
 
-      const newKey = `${matches[randomIndex].id}-${randomKey}`;
-      setMatches(updatedMatches);
-      setHighlighted({ [newKey]: "highlight" });
+      setMatches(updated);
+      setHighlighted({ [highlightKey]: "highlight" });
 
-      // Remove highlight after 1 second
       setTimeout(() => {
         setHighlighted({});
-      }, 1000);
-    }, 5000); // every 5 seconds
+      }, HIGHLIGHT_DURATION);
+    }, intervalMs);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [intervalMs]);
 
   return { matches, highlighted };
 }

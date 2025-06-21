@@ -15,7 +15,6 @@ type Props = {
 };
 
 export default function MatchCard({
-  id,
   league,
   date,
   team1,
@@ -25,14 +24,15 @@ export default function MatchCard({
   odds,
   isHighlighted,
 }: Props) {
+  const { one, x, two } = odds;
   return (
     <div
-      className={`bg-[#130825] p-6 rounded-lg text-white w-full max-w-sm transition-all duration-300 ${
+      className={`bg-[#130825] hover:bg-[#0F0A1F] p-6 rounded-lg text-white w-full max-w-sm transition-all duration-300 ${
         isHighlighted ? "shadow-[0_0_20px_#1BB96B] animate-pulse" : ""
       }`}
     >
       {/* League & Date */}
-      <div className="flex justify-between text-sm text-gray-400 mb-4">
+      <div className="flex justify-between text-sm text-gray-400 mb-5">
         <span className="flex items-center gap-1">
           <span className="material-symbols-outlined">sports_soccer</span>
           <span>{league}</span>
@@ -53,11 +53,11 @@ export default function MatchCard({
         </div>
       </div>
 
-      {/* Odds */}
+      {/* Odds buttons */}
       <div className="flex justify-between gap-4 text-sm font-medium">
-        <OddButton label="1" value={odds.one} />
-        <OddButton label="X" value={odds.x} />
-        <OddButton label="2" value={odds.two} />
+        <OddButton label="1" value={one} />
+        <OddButton label="X" value={x} />
+        <OddButton label="2" value={two} />
       </div>
     </div>
   );

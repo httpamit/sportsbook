@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏟️ Sportsbook
 
-## Getting Started
+A modern and responsive sports betting UI built with **Next.js 15**, **React 19**, **Tailwind CSS 4**, and **TypeScript**. Includes real-time odds simulation, highlight animations, modular components, and full testing support.
 
-First, run the development server:
+---
+
+## 📦 Tech Stack
+
+- ⚡️ Next.js 15
+- ⚛️ React 19
+- 🎨 Tailwind CSS 4
+- 🔒 TypeScript
+- 🧪 Jest + Testing Library
+- 🧹 ESLint for linting
+- 🚀 pnpm for fast dependency management
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/sportsbook.git
+cd sportsbook
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Run the development server
 
-## Learn More
+```bash
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Visit [http://localhost:3000](http://localhost:3000)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📜 Available Scripts
 
-## Deploy on Vercel
+| Command      | Description                        |
+| ------------ | ---------------------------------- |
+| `pnpm dev`   | Run development server (Turbopack) |
+| `pnpm build` | Build an app for production        |
+| `pnpm start` | Start the production server        |
+| `pnpm lint`  | Run ESLint for code linting        |
+| `pnpm test`  | Run unit tests with Jest           |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ✅ Features
+
+- 🔁 Real-time odds update simulation
+- 💡 Highlighted animations on change
+- 🧩 Modular, reusable components
+- 📱 Fully responsive layout
+- 🧪 Unit-tested with Jest & Testing Library
+- 🔒 Strictly typed with TypeScript
+
+---
+
+## 🧪 Testing
+
+To run all tests:
+
+```bash
+pnpm test
+```
+
+Tests are colocated with their components. Example file structure:
+
+```
+src/components/ui/Button/index.test.tsx
+src/components/SportMatch/hooks/useOddsUpdater.test.ts
+```
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+│
+├── components/
+│   ├── ui/              # Shared UI components
+│   ├── SportMatch/      # MatchCard, Odds buttons, logic
+│
+├── hooks/               # Custom hooks (e.g., useOddsUpdater)
+├── pages/               # Next.js route pages
+├── styles/              # Tailwind and global styles
+```

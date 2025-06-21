@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes, ReactNode } from "react";
 
-type Variant =
+export type Variant =
   | "green"
   | "greenDark"
   | "greenLight"
