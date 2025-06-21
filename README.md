@@ -21,7 +21,7 @@ A modern and responsive sports betting UI built with **Next.js 15**, **React 19*
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/sportsbook.git
+git clone https://github.com/httpamit/sportsbook.git
 cd sportsbook
 ```
 
